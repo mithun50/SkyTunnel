@@ -39,6 +39,8 @@ jobs:
   build-windows:
     needs: analyze-and-test
     runs-on: windows-latest
+    env:
+      CMAKE_GENERATOR: "Visual Studio 17 2022"
     steps:
       - uses: actions/checkout@v4
 
@@ -57,6 +59,8 @@ jobs:
 
       - name: Build Windows
         run: flutter build windows --release
+        env:
+          CMAKE_GENERATOR: "Visual Studio 17 2022"
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v4
