@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../providers/app_state.dart';
 import '../utils/theme.dart';
 import '../widgets/shortcuts_wrapper.dart';
+import '../widgets/about_dialog.dart';
 import 'dashboard_screen.dart';
 import 'profiles_screen.dart';
 import 'settings_screen.dart';
@@ -292,24 +293,49 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildFooterStatus(AppState state) {
     return Container(
       padding: const EdgeInsets.all(12),
-      child: Row(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            width: 8,
-            height: 8,
-            decoration: BoxDecoration(
-              color: state.ngrokStatus.isReady
-                  ? AppTheme.successColor
-                  : AppTheme.errorColor,
-              shape: BoxShape.circle,
-            ),
+          Row(
+            children: [
+              Container(
+                width: 8,
+                height: 8,
+                decoration: BoxDecoration(
+                  color: state.ngrokStatus.isReady
+                      ? AppTheme.successColor
+                      : AppTheme.errorColor,
+                  shape: BoxShape.circle,
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  'ngrok: ${state.ngrokStatus.installationStatus.displayName}',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.white.withValues(alpha: 0.4),
+                  ),
+                ),
+              ),
+            ],
           ),
-          const SizedBox(width: 8),
-          Text(
-            'ngrok: ${state.ngrokStatus.installationStatus.displayName}',
-            style: TextStyle(
-              fontSize: 12,
-              color: Colors.white.withValues(alpha: 0.4),
+          const SizedBox(height: 6),
+          SizedBox(
+            width: double.infinity,
+            child: TextButton(
+              onPressed: () => SkyTunnelAboutDialog.show(context),
+              style: TextButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                minimumSize: Size.zero,
+              ),
+              child: Text(
+                'About SkyTunnel',
+                style: TextStyle(
+                  fontSize: 11,
+                  color: Colors.white.withValues(alpha: 0.3),
+                ),
+              ),
             ),
           ),
         ],

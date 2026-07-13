@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+  <defs>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6C5CE7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00CEC9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Mini icon -->
+  <path d="M 60 30 L 42 80 L 55 80 L 40 130 L 72 75 L 56 75 L 68 30 Z"
+        fill="url(#textGrad)"/>
+  <path d="M 80 65 Q 95 80 80 95" stroke="#6C5CE7" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <path d="M 88 55 Q 110 80 88 105" stroke="#6C5CE7" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- Text -->
+  <text x="130" y="105" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="90" font-weight="800" fill="url(#textGrad)"
+        letter-spacing="-2">Sky</text>
+  <text x="295" y="105" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="90" font-weight="300" fill="#E0E0FF"
+        letter-spacing="-2">Tunnel</text>
+
+  <!-- Tagline -->
+  <text x="130" y="145" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="22" fill="#888" letter-spacing="4">ONE-CLICK GAME SERVER HOSTING</text>
+</svg>
